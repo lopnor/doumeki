@@ -93,7 +93,14 @@ sub run {
             lazy      => 1,
         });
 
-    my $receiver = Doumeki::Receiver->new('GR2', %{$self->conf->{receiver}{GR2}});
+    my $receiver;
+    if (my ($receiver_class, $receiver_config) = %{$self->conf->{receiver}}) {
+        $receiver = Doumeki::Receiver->new(
+            $receiver_class, %$receiver_config
+        );
+    } else {
+        die "couldn't find receiver configuration";
+    }
 
     Doumeki::Log->log(debug => "build_engine, self->conf: ".Dumper($self->conf));
 

@@ -42,6 +42,8 @@ feature 'Notify::XMPP',
     'Net::XMPP';
 
 requires_any_moose 'X::AttributeHelpers';
+requires_any_moose 'X::Getopt';
+requires_any_moose 'X::ConfigFromFile';
 
 tests 't/*.t';
 author_tests('xt');

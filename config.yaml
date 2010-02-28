@@ -1,0 +1,10 @@
+server:
+  port: 5000
+  host: 0.0.0.0
+
+receiver:
+  GR2::MultiAccount: ~
+
+store:
+  Tumblr: ~
+  Twitpic: ~
